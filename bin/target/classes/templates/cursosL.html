@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width:500px; margin: auto"></h1>
+					<div class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mx-2">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Id Curso</th>
+									<th>Nombre Curso</th>
+									<th>Descripcon Curso</th>
+									<th>Horario Curso</th>
+									<th>Editar Curso</th>
+									<th>Eliminar Curso</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="curso : ${cursos}">
+									<td th:text="${curso.idCurso}"></td>
+									<td th:text="${curso.nombreCurso}"></td>
+									<td th:text="${curso.descripcionCurso}"></td>
+									<td th:text="${curso.horarioCurso}"></td>
+									<td><a th:href="@{/formCur/} + ${curso.idCurso}"><input value="Editar Curso" class="btn btn-warning btn-xs "/></a></td>
+									<td><a th:href="@{/eliminarCur/} + ${curso.idCurso}"><input value="Eliminar Curso" class="btn btn-danger btn-xs" onclick="return confirm('Seguro que desea eliminar el curso?');" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	<a th:href="@{/formCur}"><input value="Crear Nuevo Curso" class="btn btn-success mx-sm-3 mb-2"/></a>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>
