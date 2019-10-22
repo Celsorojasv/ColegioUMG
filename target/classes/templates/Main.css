@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body {font-family: 'Montserrat' , sans-serif; }
+
+.navbar .nav-item .dropdown-menu .dropdown-item{
+    color: black !important;
+    background-color: lightgray;
+    opacity: 5%;
+
+}
+.navbar .nav-item .dropdown-menu .dropdown-item:hover {
+    color: black !important;
+    background-color: grey;
+}

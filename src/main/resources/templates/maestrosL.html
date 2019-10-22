@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width:500px; margin: auto"></h1>
+					<div class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mb-2">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Id Maestro</th>
+									<th>Primer Nombre</th>
+									<th>Segundo Nombre</th>
+									<th>Tercer Nombre</th>
+									<th>Primer Apellido</th>
+									<th>Segundo Apellido</th>
+									<th>Correo</th>
+									<th>Sexo</th>
+									<th>Edad</th>
+									<th>DPI</th>
+									<th>Editar Maestro</th>
+									<th>Eliminar Maestro</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="maestro : ${maestros}">
+									<td th:text="${maestro.idMa}"></td>
+									<td th:text="${maestro.nombreMa1}"></td>
+									<td th:text="${maestro.nombreMa2}"></td>
+									<td th:text="${maestro.nombreMa3}"></td>
+									<td th:text="${maestro.apellidoMa1}"></td>
+									<td th:text="${maestro.apellidoMa2}"></td>
+									<td th:text="${maestro.correoMa}"></td>
+									<td th:text="${maestro.sexoMa}"></td>
+									<td th:text="${maestro.edadMa}"></td>
+									<td th:text="${maestro.dpiMa}"></td>
+									<td><a th:href="@{/formMa/} + ${maestro.idMa}"><input value="Editar Maestro" class="btn btn-warning btn-xs "/></a></td>
+									<td><a th:href="@{/eliminarMa/} + ${maestro.idMa}"><input value="Eliminar Maestro" class="btn btn-danger btn-xs" onclick="return confirm('Seguro que desea eliminar el maestro?');" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	<a th:href="@{/formMa}"><input value="Crear Nuevo Maestro" class="btn btn-success mx-sm-3 mb-2"/></a>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+<body>
+	<h1 th:text="${titulo}" style="width: 500px; margin: auto"></h1>
+
+	<form th:action="@{/formEs}" th:object="${estudiante}" method="post"
+		style="width: 500px; margin: auto">
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Primer Nombre</label> <input type="text"
+				th:field="*{nombreEstu1}" class="form-control" placeholder=" ">
+			<small class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('nombreEstu1')}"
+				th:errors="*{nombreEstu1}"></small>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Segundo Nombre</label> <input type="text"
+				th:field="*{nombreEstu2}" class="form-control" placeholder=" ">
+			<small class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('nombreEstu2')}"
+				th:errors="*{nombreEstu2}"></small>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Tercer Nombre</label> <input type="text"
+				th:field="*{nombreEstu3}" class="form-control" placeholder=" ">
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Primer Apellido</label> <input type="text"
+				th:field="*{apeEstu1}" class="form-control" placeholder=" ">
+			<small class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('apeEstu1')}" th:errors="*{apeEstu1}"></small>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Segundo Apellido</label> <input type="text"
+				th:field="*{apeEstu2}" class="form-control" placeholder=" ">
+			<small class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('apeEstu2')}" th:errors="*{apeEstu2}"></small>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Correo</label> <input type="text" th:field="*{correoEstu}"
+				class="form-control" placeholder=" "> <small
+				class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('correoEstu')}" th:errors="*{correoEstu}"></small>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+		<label>Sexo</label>	
+			<select th:field="*{sexoEstu}" class="browser-default custom-select">
+    		<option th:value="'M'" th:text="Masculino"></option>
+    		<option th:value="'F'" th:text="Femenino"></option>
+			</select>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label>Edad</label> <input type="text" th:field="*{edadEstu}"
+				class="form-control" placeholder=" "> <small
+				class="fortm-text text-danger"
+				th:if="${#fields.hasErrors('edadEstu')}" th:errors="*{edadEstu}"></small>
+		</div>
+
+
+		<button type="submit" class="btn btn-primary mx-sm-3 mb-2"
+			th:text="${boton}"></button>
+		<input type="hidden" th:field="*{idEstu}" />
+	</form>
+
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>
