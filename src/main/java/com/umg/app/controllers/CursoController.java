@@ -75,7 +75,8 @@ public class CursoController {
 	
 	//ESTO VA EN EL MAIN CONTROLLER
 	@GetMapping(value = "index")
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("titulo", "index");
 		return "index";
 	}
 
