@@ -1,4 +1,4 @@
-package com.umg.app.models.dao;
+package com.umg.app.dao;
 
 import java.util.List;
 

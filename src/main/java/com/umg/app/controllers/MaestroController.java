@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.umg.app.models.dao.IMaestroDao;
+import com.umg.app.dao.IMaestroDao;
 import com.umg.app.models.entity.Maestro;
 
 
