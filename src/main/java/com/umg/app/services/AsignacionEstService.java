@@ -132,11 +132,11 @@ public class AsignacionEstService implements IAsignacionEst {
 	@Override
 	public List<AsignacionEst> findAllByCourse(Long id) {
 	
-			String sql = "SELECT e.id_estudiante, e.nom_es1, e.ape_es1, c.horario, ass.id_asignacion_estu FROM asignacion_estu ass " + 
+			String sql = "SELECT e.id_estudiante, e.nom_es1, e.ape_es1, c.horario,  ass.id_asignacion_estu FROM asignacion_estu ass " + 
 					" INNER JOIN estudiantes e ON ass.id_estudiante = e.id_estudiante " + 
 					" INNER JOIN cursos c ON ass.id_curso = c.id_curso WHERE c.id_curso = ?";
 		
-			return jdbcTemplate.query(sql, new RowMapper<AsignacionEst>() {
+			return jdbcTemplate.query(sql,  new Object[] {id} , new RowMapper<AsignacionEst>() {
 
 				@Override
 				public AsignacionEst mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -144,10 +144,11 @@ public class AsignacionEstService implements IAsignacionEst {
 					Estudiante es = new Estudiante();
 					Curso cu = new Curso();
 					
-				
+					es.setIdEstu(rs.getLong("id_estudiante"));
 					es.setNombreEstu1(rs.getString("nom_es1"));
 					es.setApeEstu1(rs.getString("ape_es1"));
 					cu.setHorarioCurso(rs.getNString("horario"));
+					cu.setIdCurso(rs.getLong("id_curso"));
 					
 					asignacion.setCurso(cu);
 					asignacion.setEstudiante(es);
