@@ -20,6 +20,7 @@
 									<th>Edad</th>
 									<th>Editar Estudiante</th>
 									<th>Eliminar Estudiante</th>
+									<th>Asignaciones Estudiante</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -35,6 +36,7 @@
 									<td th:text="${estudiante.edadEstu}"></td>
 									<td><a th:href="@{/formEs/} + ${estudiante.idEstu}"><input value="Editar Estudiante" class="btn btn-warning btn-xs "/></a></td>
 									<td><a th:href="@{/eliminarEs/} + ${estudiante.idEstu}"><input value="Eliminar Estudiante" class="btn btn-danger btn-xs" onclick="return confirm('Seguro que desea eliminar el estudiante?');" /></a></td>
+									<td><a th:href="@{/AsigEst/} + ${estudiante.idEstu}"><input value="Listado Asignaciones" class="btn btn-success btn-xs "/></a></td>
 								</tr>
 							</tbody>
 						</table>

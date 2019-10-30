@@ -108,3 +108,4 @@ INNER JOIN estudiantes s ON asist.id_estudiante = s.id_estudiante
 INNER JOIN asistencias ass ON asist.id_asistencia = ass.id_asistencia;
 
 
+

@@ -21,6 +21,7 @@
 									<th>DPI</th>
 									<th>Editar Maestro</th>
 									<th>Eliminar Maestro</th>
+									<th>Asignaciones Maestro</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -37,6 +38,7 @@
 									<td th:text="${maestro.dpiMa}"></td>
 									<td><a th:href="@{/formMa/} + ${maestro.idMa}"><input value="Editar Maestro" class="btn btn-warning btn-xs "/></a></td>
 									<td><a th:href="@{/eliminarMa/} + ${maestro.idMa}"><input value="Eliminar Maestro" class="btn btn-danger btn-xs" onclick="return confirm('Seguro que desea eliminar el maestro?');" /></a></td>
+									<td><a th:href="@{/AsigMa/} + ${maestro.idMa}"><input value="Listado Asignaciones" class="btn btn-success btn-xs "/></a></td>
 								</tr>
 							</tbody>
 						</table>

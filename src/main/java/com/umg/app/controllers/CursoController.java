@@ -79,5 +79,12 @@ public class CursoController {
 		model.addAttribute("titulo", "index");
 		return "index";
 	}
+	
+	@RequestMapping(value = "/AsignacionesCursos", method = RequestMethod.GET)
+	public String listadoCursosAs(Model model) {
+		model.addAttribute("titulo", "Listado Cursos.");
+		model.addAttribute("cursos", cursoDao.findAll());
+		return "AsignadosCursos";
+	}
 
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width:500px; margin: auto"></h1>
+					<div class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mx-2">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Id Curso</th>
+									<th>Nombre Curso</th>
+									<th>Descripcon Curso</th>
+									<th>Horario Curso</th>
+									<th>Estudiantes Asignados al Curso</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="curso : ${cursos}">
+									<td th:text="${curso.idCurso}"></td>
+									<td th:text="${curso.nombreCurso}"></td>
+									<td th:text="${curso.descripcionCurso}"></td>
+									<td th:text="${curso.horarioCurso}"></td>
+									<td><a th:href="@{/AsigCur/} + ${curso.idCurso}"><input value="Listar Estudiantes asignados al curso." class="btn btn-success"/></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>
