@@ -92,7 +92,7 @@ public class AsignacionMaeService implements IAsignacionMae {
 	@Transactional(readOnly = true)
 	@Override
 	public AsignacionMae findOne(long id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

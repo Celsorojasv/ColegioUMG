@@ -70,7 +70,7 @@ public class AsignacionEstService implements IAsignacionEst {
 
 			@Override
 			public AsignacionEst mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
+				
 				AsignacionEst asignacion = new AsignacionEst();
 				Estudiante es = new Estudiante();
 				Curso cu = new Curso();
@@ -148,7 +148,6 @@ public class AsignacionEstService implements IAsignacionEst {
 					es.setNombreEstu1(rs.getString("nom_es1"));
 					es.setApeEstu1(rs.getString("ape_es1"));
 					cu.setHorarioCurso(rs.getNString("horario"));
-					cu.setIdCurso(rs.getLong("id_curso"));
 					
 					asignacion.setCurso(cu);
 					asignacion.setEstudiante(es);

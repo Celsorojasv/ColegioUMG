@@ -30,7 +30,7 @@ public class AsignEstController {
 	@RequestMapping(value = "/AsigEst/{id}")
 	public String listarases(@PathVariable(value = "id") Long id, Model model) {
 	
-		model.addAttribute("titulo", "Listado Asignaciones.");
+		model.addAttribute("titulo", "Listado Asignaciones del Estudiante.");
 		model.addAttribute("asignEs", servicio.findAllByStudent(id));
 		return "/listarAsEs";
 	}
@@ -46,8 +46,8 @@ public class AsignEstController {
 	
 	@RequestMapping(value = "/AsigCur/{id}")
 	public String ListaEsCu(@PathVariable(value = "id") Long id, Model model) {
-	
-		model.addAttribute("titulo", "Listado Asignaciones.");
+		
+		model.addAttribute("titulo", "Listado Asignaciones Curso - Estudiantes.");
 		model.addAttribute("asignCu", servicio.findAllByCourse(id));
 		return "ListAsignadosCursos";
 	}
