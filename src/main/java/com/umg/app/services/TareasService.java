@@ -46,7 +46,9 @@ public class TareasService implements ITareas {
 
 	@Override
 	public void save(Tareas tareas) {
-		// TODO Auto-generated method stub
+		String sql = "INSERT INTO tareas " + "(id_tarea , punteo ,id_curso) " +
+				"VALUES (?,?,?)";
+		jdbcTemplate.update(sql, new Object[] {tareas.getIdTarea() , tareas.getPunteo() , tareas.getCurso().getIdCurso()});
 
 	}
 

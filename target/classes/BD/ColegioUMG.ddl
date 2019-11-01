@@ -68,7 +68,17 @@ estado_asistencia	INT NOT NULL,
     id_curso               INT NOT NULL,
     FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
     FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
 );
+
+CREATE TABLE tareas (
+    id_tarea	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    punteo		DECIMAL,
+    id_curso               INT NOT NULL,
+    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+);
+
 
 CREATE TABLE zonas (
     id_zona	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -77,13 +87,8 @@ CREATE TABLE zonas (
     id_tarea               INT NOT NULL,
     FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
     FOREIGN KEY (id_tarea) REFERENCES tareas(id_tarea)
-);
-
-CREATE TABLE tareas (
-    id_tarea	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    punteo		DECIMAL,
-    id_curso               INT NOT NULL,
-    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
 );
 
 
@@ -102,7 +107,6 @@ CREATE OR REPLACE VIEW view_zonas AS
 SELECT e.id_estudiante, e.nom_es1 , e.ape_es1 , t.id_tarea , t.punteo  FROM zonas zo
 INNER JOIN estudiantes e ON zo.id_estudiante = e.id_estudiante
 INNER JOIN tareas t ON zo.id_tarea = t.id_tarea;
-
 
 CREATE OR REPLACE VIEW view_asistencias AS 
 SELECT s.id_estudiante, s.nom_es1, s.ape_es1, ass.fecha_asistencia , ass.estado_asistencia FROM asistencias asist

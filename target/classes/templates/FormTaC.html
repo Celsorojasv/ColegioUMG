@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "Layout/layout :: head">
+</head>
+<body>
+<header th:replace = "Layout/layout :: header">
+</header>
+<body>
+	<h1 th:text="${titulo}" style="width:500px; margin: auto"></h1>
+		
+<form th:action="@{/CrearTaC}" th:object="${tarea}" method="post" style="width:500px; margin: auto">
+  <div class="form-group mx-sm-3 mb-2">
+    <label>Id Curso</label>
+    <select th:field="*{Curso.idCurso}"  class="browser-default custom-select">
+    <option value=""></option>
+  <option th:each="curso : ${cursos}"
+     th:value="${curso.idCurso}"
+     th:text="'ID:'+' '+ ${curso.idCurso} +' '+ ${curso.nombreCurso}"
+     >
+  </option>
+</select>
+
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label>Punteo</label>
+    <input type="text" th:field="*{punteo}"  class="form-control" placeholder=" ">
+  </div>
+
+  <button th:text="${boton}" type="submit" class="btn btn-primary mx-sm-3 mb-2"></button>
+  <input type="hidden" th:field="*{idTarea}" />
+</form>
+	
+	<footer th:replace = "Layout/layout :: footer"></footer>
+</body>
+</html>
