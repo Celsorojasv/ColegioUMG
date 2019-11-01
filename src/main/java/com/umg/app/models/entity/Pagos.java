@@ -2,15 +2,15 @@ package com.umg.app.models.entity;
 
 public class Pagos {
 
-	private float idPago;
+	private Long idPago;
 	private float montoPago;
 	private String fechaPago;
 	private String descrPago;
 	private Estudiante estudiante;
-	public float getIdPago() {
+	public Long getIdPago() {
 		return idPago;
 	}
-	public void setIdPago(float idPago) {
+	public void setIdPago(Long idPago) {
 		this.idPago = idPago;
 	}
 	public float getMontoPago() {

@@ -55,7 +55,9 @@ CREATE TABLE asignacion_estu (
     id_estudiante          INT NOT NULL,
     id_curso               INT NOT NULL,
     FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante),
-    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
+    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso) 
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE asistencias (

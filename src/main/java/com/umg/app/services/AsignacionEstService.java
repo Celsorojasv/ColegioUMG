@@ -56,6 +56,7 @@ public class AsignacionEstService implements IAsignacionEst {
 	public void save(AsignacionEst AsignacionEst) {
 		String sql =  "INSERT INTO asignacion_estu" + "(id_estudiante,id_curso) VALUES (?,?)";
 		jdbcTemplate.update(sql, new Object[] {AsignacionEst.getEstudiante().getIdEstu() , AsignacionEst.getCurso().getIdCurso()});	
+
 	}
 
 	

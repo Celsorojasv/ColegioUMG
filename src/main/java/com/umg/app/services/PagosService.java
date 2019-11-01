@@ -31,7 +31,7 @@ public class PagosService implements IPago {
 				Estudiante es = new Estudiante();
 				Pagos pa = new Pagos();
 
-				pa.setIdPago(rs.getFloat("id_pago"));
+				pa.setIdPago(rs.getLong("id_pago"));
 				pa.setMontoPago(rs.getFloat("monto_pago"));
 				pa.setFechaPago(rs.getString("fecha_pago"));
 				pa.setDescrPago(rs.getString("descripcion_pago"));
@@ -53,7 +53,7 @@ public class PagosService implements IPago {
 	public void save(Pagos pagos) {
 		String sql = "INSERT INTO pagos " + "(id_pago , monto_pago , fecha_pago , descripcion_pago , id_estudiante) " +
 				"VALUES (?,?,?,?,?)";
-		jdbcTemplate.update(sql, new Object[] {pagos.getIdPago() , pagos.getMontoPago() , pagos.getFechaPago() , pagos.getDescrPago() , pagos.getEstudiante()});
+		jdbcTemplate.update(sql, new Object[] {pagos.getIdPago() , pagos.getMontoPago() , pagos.getFechaPago() , pagos.getDescrPago() , pagos.getEstudiante().getIdEstu()});
 	}
 
 }
