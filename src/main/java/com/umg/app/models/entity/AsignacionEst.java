@@ -15,8 +15,8 @@ public class AsignacionEst {
 	public Estudiante getEstudiante() {
 		return Estudiante;
 	}
-	public void setEstudiante(Estudiante idEstudiante) {
-		this.Estudiante = idEstudiante;
+	public void setEstudiante(Estudiante Estudiante) {
+		this.Estudiante = Estudiante;
 	}
 	public Curso getCurso() {
 		return Curso;

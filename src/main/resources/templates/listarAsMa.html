@@ -9,6 +9,8 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
+									<th>Id Maestro</th>
+									<th>Nombre Maestro</th>
 									<th>Id Asignacion</th>
 									<th>Nombre Curso</th>
 									<th>Horario Curso</th>
@@ -16,6 +18,8 @@
 							</thead>
 							<tbody>
 								<tr th:each="asignacion : ${asignMa}">
+									<td th:text="${asignacion.Maestro.idMa}"></td>
+									<td th:text="${asignacion.Maestro.nombreMa1}"></td>
 									<td th:text="${asignacion.idAsignacion}"></td>
 									<td th:text="${asignacion.Curso.nombreCurso}"></td>
 									<td th:text="${asignacion.Curso.horarioCurso}"></td>
@@ -23,6 +27,7 @@
 								</tr>
 							</tbody>
 						</table>
+						<a><input value="Crear Nueva Asignacion" class="btn btn-success mx-sm-3 mb-2"/></a>
 					</div>
 	
 	<footer th:replace="Layout/layout :: footer"></footer>

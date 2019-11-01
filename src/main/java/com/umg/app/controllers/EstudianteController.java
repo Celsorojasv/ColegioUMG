@@ -69,5 +69,13 @@ public class EstudianteController {
 		}
 		return "redirect:/estudiantesL";
 	}
+	
+
+	@RequestMapping(value = "/ListadoPagosEs", method = RequestMethod.GET)
+	public String listadoPEstudiantes(Model model) {
+		model.addAttribute("titulo", "Listado Estudiantes.");
+		model.addAttribute("estudiantes", estudianteDao.findAll());
+		return "ListadoPagosEs";
+	}
 
 }

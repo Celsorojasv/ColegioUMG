@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width: 400px; margin: auto"></h1>
+	<div
+		class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mx-2">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Id Curso</th>
+					<th>Nombre Curso</th>
+					<th>Id Tarea</th>
+					<th>Punteo Tarea</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="tarea : ${TareasC}">
+					<td th:text="${tarea.Curso.idCurso}"></td>
+					<td th:text="${tarea.Curso.nombreCurso}"></td>
+					<td th:text="${tarea.idTarea}"></td>
+					<td th:text="${tarea.punteo}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>

@@ -37,6 +37,7 @@ public class AsignacionMaeService implements IAsignacionMae {
 				Curso cu = new Curso();
 				
 			
+				ma.setIdMa(rs.getLong("id_maestro"));
 				ma.setNombreMa1(rs.getString("nom_ma1"));
 				ma.setApellidoMa1(rs.getString("ape_ma1"));
 				cu.setNombreCurso(rs.getString("nom_cu"));

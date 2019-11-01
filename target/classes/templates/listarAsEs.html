@@ -10,13 +10,17 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
+					<th>Id Estudiante</th>
+					<th>Nombre Estudiante</th>
 					<th>Id Asignacion</th>
 					<th>Nombre Curso</th>
 					<th>Horario Curso</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="asignacion : ${asignEs}">
+			<tr th:each="asignacion : ${asignEs}">
+					<td th:text="${asignacion.Estudiante.idEstu}"></td>
+					<td th:text="${asignacion.Estudiante.nombreEstu1}"></td>
 					<td th:text="${asignacion.idAsignacion}"></td>
 					<td th:text="${asignacion.Curso.nombreCurso}"></td>
 					<td th:text="${asignacion.Curso.horarioCurso}"></td>
@@ -27,6 +31,7 @@
 			</tbody>
 		</table>
 	</div>
+	<a th:href="@{/CreaAsign}"><input  value="Crear Nueva Asignacion" class="btn btn-success mx-sm-3 mb-2"/></a>
 	<footer th:replace="Layout/layout :: footer"></footer>
 </body>
 </html>

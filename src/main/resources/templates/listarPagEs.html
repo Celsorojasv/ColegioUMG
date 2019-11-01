@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width: 400px; margin: auto"></h1>
+	<div
+		class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mx-2">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Id Estudiante</th>
+					<th>Nombre Estudiante</th>
+					<th>Apellido Estudiante</th>
+					<th>Id Pago</th>
+					<th>Monto Pago</th>
+					<th>Fecha Pago</th>
+					<th>Descripcion Pago</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="pago : ${PagoEst}">
+					<td th:text="${pago.Estudiante.idEstu}"></td>
+					<td th:text="${pago.Estudiante.nombreEstu1}"></td>
+					<td th:text="${pago.Estudiante.apeEstu1}"></td>
+					<td th:text="${pago.idPago}"></td>
+					<td th:text="${pago.montoPago}"></td>
+					<td th:text="${pago.fechaPago}"></td>
+					<td th:text="${pago.descrPago}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>

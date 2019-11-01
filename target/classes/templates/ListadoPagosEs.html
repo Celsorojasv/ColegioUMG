@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+	<header th:replace="Layout/layout :: header"> </header>
+	<h1 th:text="${titulo}" style="width:500px; margin: auto"></h1>
+					<div class="table table-responsive-sm table-bordered table-striped table-hover mx-md-0 mb-2">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Id Estudiante</th>
+									<th>Primer Nombre</th>
+									<th>Segundo Nombre</th>
+									<th>Primer Apellido</th>
+									<th>Segundo Apellido</th>
+									<th>Correo</th>
+									<th>Pagos Estudiante.</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="estudiante : ${estudiantes}">
+									<td th:text="${estudiante.idEstu}"></td>
+									<td th:text="${estudiante.nombreEstu1}"></td>
+									<td th:text="${estudiante.nombreEstu2}"></td>
+									<td th:text="${estudiante.apeEstu1}"></td>
+									<td th:text="${estudiante.apeEstu2}"></td>
+									<td th:text="${estudiante.correoEstu}"></td>
+									<td><a th:href="@{/PagoEst/} + ${estudiante.idEstu}"><input value="Listar Pagos Estudiante" class="btn btn-success btn-xs "/></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	<footer th:replace="Layout/layout :: footer"></footer>
+</body>
+</html>

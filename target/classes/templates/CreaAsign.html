@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "Layout/layout :: head">
+</head>
+<body>
+<header th:replace = "Layout/layout :: header">
+</header>
+<body>
+	<h1 style="width:500px; margin: auto">Crear Asignacion</h1>
+		
+<form th:action="@{/CreaAsign}" th:object="*{Aest}" th:method="post" style="width:500px; margin: auto">
+  <div class="form-group mx-sm-3 mb-2">
+    <label>Id Curso</label>
+    <input type="text" th:field="*{Aest.Curso.idCurso}"  class="form-control" placeholder=" ">
+  </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <label>Id Estudinte</label>
+    <input type="text" th:field="*{Aest.Estudiante.idEstu}"  class="form-control" placeholder=" ">
+  </div>
+ 
+  <button type="submit" th:text="${boton}"  class="btn btn-primary mx-sm-3 mb-2">Asignar</button>
+  <input type="hidden" th:field="*{Aest.idAsignacion}" />
+</form>
+	
+	<footer th:replace = "Layout/layout :: footer"></footer>
+</body>
+</html>

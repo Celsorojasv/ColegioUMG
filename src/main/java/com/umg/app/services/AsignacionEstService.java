@@ -113,7 +113,7 @@ public class AsignacionEstService implements IAsignacionEst {
 				Estudiante es = new Estudiante();
 				Curso cu = new Curso();
 				
-			
+			    es.setIdEstu(rs.getLong("id_estudiante"));
 				es.setNombreEstu1(rs.getString("nom_es1"));
 				es.setApeEstu1(rs.getString("ape_es1"));
 				cu.setNombreCurso(rs.getString("nom_cu"));
