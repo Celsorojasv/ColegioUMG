@@ -10,13 +10,27 @@
 		
 <form th:action="@{/CrearAsm}" th:object="${AsMa}" method="post" style="width:500px; margin: auto">
   <div class="form-group mx-sm-3 mb-2">
-    <label>Id Curso</label>
-    <input type="text" th:field="*{Curso.idCurso}"  class="form-control" placeholder=" ">
+     <label>Id Curso</label>
+    <select th:field="*{Curso.idCurso}"  class="browser-default custom-select">
+    <option value=""></option>
+  <option th:each="curso : ${cursos}"
+     th:value="${curso.idCurso}"
+     th:text="'ID:'+' '+ ${curso.idCurso} +' '+ ${curso.nombreCurso}"
+     >
+  </option>
+</select>
   </div>
   
   <div class="form-group mx-sm-3 mb-2">
     <label>Id Maestro</label>
-    <input type="text" th:field="*{Maestro.idMa}"  class="form-control"placeholder=" ">
+   <select th:field="*{Maestro.idMa}"  class="browser-default custom-select">
+    <option value=""></option>
+  <option th:each="maestro : ${maestros}"
+     th:value="${maestro.idMa}"
+     th:text="'ID:'+' '+ ${maestro.idMa} +' Nombre:  '+ ${maestro.nombreMa1}"
+     >
+  </option>
+</select>
   </div>
    
   <button th:text="${boton}" type="submit" class="btn btn-primary mx-sm-3 mb-2"></button>

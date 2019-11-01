@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.umg.app.dao.ICursoDao;
+import com.umg.app.dao.IMaestroDao;
 import com.umg.app.models.entity.AsignacionMae;
 import com.umg.app.services.IAsignacionMae;
 
@@ -18,6 +20,10 @@ public class AsignMaeController {
 
 	@Autowired 
 	private IAsignacionMae servicio;
+	@Autowired
+	private ICursoDao servicioCu;
+	@Autowired
+	private IMaestroDao servicioMa;
 
 	@RequestMapping(value = "/listarAs", method = RequestMethod.GET)
 	public String listadoAsMa(Model model) {
@@ -45,6 +51,8 @@ public class AsignMaeController {
 	@RequestMapping(value = "/FormAsm")
 	public String FormAsE(Model model) {
 		AsignacionMae AsMa = new AsignacionMae();
+		model.addAttribute("cursos", servicioCu.findAll());
+		model.addAttribute("maestros", servicioMa.findAll());
 		model.addAttribute("titulo", "Nueva Asignacion Maestro");
 		model.addAttribute("boton", "Crear Asignacion");
 		model.addAttribute("AsMa", AsMa);

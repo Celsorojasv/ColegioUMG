@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.umg.app.dao.ICursoDao;
+import com.umg.app.dao.IEstudianteDao;
 import com.umg.app.models.entity.AsignacionEst;
 import com.umg.app.services.IAsignacionEst;
 
@@ -18,6 +20,10 @@ public class AsignEstController {
 	@Autowired 
 	private IAsignacionEst servicio;
 	
+	@Autowired
+	private ICursoDao servicioCu;
+	@Autowired
+	private IEstudianteDao servicioEs;
 	
 	@RequestMapping(value = "/listarAsEs", method = RequestMethod.GET)
 	public String listadoAsEs(Model model) {
@@ -53,6 +59,8 @@ public class AsignEstController {
 	@RequestMapping(value = "/FormAsE")
 	public String FormAsE(Model model) {
 		AsignacionEst Aest = new AsignacionEst();
+		model.addAttribute("cursos", servicioCu.findAll());
+		model.addAttribute("estudiantes", servicioEs.findAll());
 		model.addAttribute("titulo", "Nueva Asignacion Estudiante");
 		model.addAttribute("boton", "Crear Asignacion");
 		model.addAttribute("Aest", Aest);
