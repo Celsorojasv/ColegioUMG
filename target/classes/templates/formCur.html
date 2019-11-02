@@ -27,7 +27,6 @@
     <small class="fortm-text text-danger" th:if="${#fields.hasErrors('horarioCurso')}" th:errors="*{horarioCurso}"></small>
   </div>
   
-  
   <button th:text="${boton}" type="submit" class="btn btn-primary mx-sm-3 mb-2"></button>
   <input type="hidden" th:field="*{idCurso}" />
 </form>
